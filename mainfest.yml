@@ -1,0 +1,7 @@
+---
+applications:
+- name: Medhassu_2
+  path: C:\Users\Balaji\Documents\workspace-sts-3.8.1.RELEASE\Medhassu_2\target\MedhassuApplication-0.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack
+  domain: cfapps.io
+  instances: 1

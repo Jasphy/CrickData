@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Person database</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/person1.css}"
+	href="../../css/person1.css" />
+</head>
+<body>
+<a th:href="@{/homepage1/{id}(id=${role.getId()})}">Home Page </a>
+	
+	<table style="border-collapse: separate; border-spacing: 10px;">
+	<thead>
+		<tr>
+		    <th>Photo</th>
+			<th>Name</th>
+			<th>DOB</th>
+			<th>Gender</th>
+			<th>Mobile no</th>
+			<th>Email</th>
+			<th>Country</th>
+			<th>State</th>
+			<th>Pin code</th>
+			</tr>
+			</thead>
+			<tr th:each="person:${persons}">
+			<td><img class="picture" th:src="@{/image/{name} (name=${person.getName()})}" style="width:100px;height:100px" /></td>
+			<td th:text="${person.getName()}"></td>
+			<td th:text="${person.getDOB()}"></td>
+			<td th:text="${person.getGender()}"></td>
+			<td th:text="${person.getMobileNo()}"></td>
+			<td th:text="${person.getEmail()}"></td>
+			<td th:text="${person.getCountry()}"></td>
+			<td th:text="${person.getState()}"></td>
+			<td th:text="${person.getPincode()}"></td>
+	        <td><a th:href="@{/person/{name}(name=${person.getName()})}">View</a></td>
+	        <td><a th:href="@{/update/{name}(name=${person.getName()})}">Edit</a></td>
+		</tr>
+	</table>
+	<a th:id="a1" th:href="@{/addnewplayer}">Add Player </a>
+	<a th:id="a2" th:href="@{/generatereport}">Generate Report</a>
+	<hr/>
+</body>
+</html>

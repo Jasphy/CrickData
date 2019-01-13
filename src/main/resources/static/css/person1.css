@@ -1,0 +1,29 @@
+@CHARSET "ISO-8859-1";
+body {
+    background-color:rgb(250, 230, 230);;
+}
+a{
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+    text-align:left;
+    border:double;
+	
+}
+#a1{
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+    text-align:left;
+    border:double;
+	
+}
+
+#a2{
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+    text-align:right;
+    border:double;
+	
+}

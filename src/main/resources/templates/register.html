@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1>Enter the below details </h1>
+<form action="#" th:action="@{/addregister}" method="post" >
+     <div>
+     <label for="roleid">Role</label>:
+    <input type="number" name="roleid" th:value="${roleid}"/> <br/>
+     </div>
+      <div>
+      <label for="username">Username</label>:
+      <input type="text" name="username" th:value="${username}"/> <br/>
+      </div>
+      <div>
+      <label for="password">Password</label>:
+      <input type="password" name="password" th:value="${password}"/> <br/>
+      </div>
+      <div>
+      <label for="email">Email_id</label>:
+      <input type="text" name="email" th:value="${email}"/> <br/>
+      </div>
+      <div>
+      <label for="gender">Gender</label>:
+      <input type="radio" name="gender" value="male"/>Male <br/>
+      <input type="radio" name="gender" value="female"/>Female <br/>
+      </div>
+      <div>
+     <label for="country">Country</label>:
+    <input type="text" name="country" th:value="${country}"/> <br/>
+     </div>
+     
+      <div>
+      <input type="submit" value="Submit" />
+      </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+<title>Login page</title>
+</head>
+<body>
+<p th:align="center" th:color="white">Welcome !! Please Login. </p>
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+<!-- @{/homepage}-->
+   <form th:with="authUrl=${'/homepage'}" action="#" th:action="${authUrl}" method="post">
+   
+      <div>
+      <img src="../../static/images/images.jpg" class="pitch" style="width:200px;height:100px"/>
+      </div>
+    
+      <div>
+      <label for="username">User name</label>
+      <input type="text" placeholder="username" name="username" th:value="${username}"/> 
+      <br />
+      <label for="password">Password</label>
+      <input type="password" placeholder="password" name="password" th:value="${password}"/> 
+      <br />
+      <br />
+      </div>
+     
+      <div>
+      <input th:align="left" type="submit" value="Sign in" />
+      <a th:align="right" th:href="@{/register}">New User</a>
+      </div>
+      
+    </form>
+    
+    
+</body>
+</html>

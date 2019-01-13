@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1>Enter the below details </h1>
+<form action="#" th:action="@{/addplayer}" method="post" enctype="multipart/form-data">
+     <div>
+      <label for="playername">Name</label>:
+      <input type="text" name="playername" th:value="${playername}"/> <br/>
+      </div>
+      
+      <div>
+      <label for="dateofbirth">Date of Birth</label>:
+      <input type="date" name="dateofbirth" th:value="${dateofbirth}"/> <br/>
+      </div>
+      <div>
+      <label for="mailid">Email_id</label>:
+      <input type="text" name="mailid" th:value="${mailid}"/> <br/>
+      </div>
+      <div>
+      <label for="gender">Gender</label>:
+      <input type="radio" name="gender" value="male"/>Male <br/>
+      <input type="radio" name="gender" value="female"/>Female <br/>
+      </div>
+      <div>
+     <label for="country">Country</label>:
+    <input type="text" name="country" th:value="${country}"/> <br/>
+     </div>
+     <div>
+     <label for="state">State</label>:
+    <input type="text" name="state" th:value="${state}"/> <br/>
+     </div>
+     <div>
+     <label for="mobile">Contact no</label>:
+    <input type="text" name="mobile" th:value="${mobile}"/> <br/>
+     </div>
+     <div>
+     <label for="pincode">Pin code</label>:
+    <input type="text" name="pincode" th:value="${pincode}"/> <br/>
+     </div>
+     
+     <div>
+     <label for="image">Upload photo</label>:
+    <input type="file" name="image" th:value="${image}"/> <br/>
+     </div>
+     
+      <div>
+      <input type="submit" value="Finish" />
+      </div>
+    </form>
+</body>
+</html>

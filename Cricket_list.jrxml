@@ -32,7 +32,7 @@
 			<staticText>
 				<reportElement x="170" y="46" width="184" height="33" forecolor="#6666FF" uuid="b55966df-1db9-40b9-a1fc-c614e9c1193b"/>
 				<textElement>
-					<font fontName="Times New Roman" size="18" isBold="true"/>
+					<font fontName="Arial" size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cricketers's Report]]></text>
 			</staticText>

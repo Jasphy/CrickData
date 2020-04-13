@@ -233,7 +233,7 @@ public class MvcController {
 	@PostMapping("/addplayer") // Add new Player
 	public String addnewplayer(@RequestParam("playername")String name,@RequestParam("dateofbirth")@DateTimeFormat(pattern = "yyyy-MM-dd")Date dOB, @RequestParam("gender")String gender,@RequestParam("mailid")String email,
 			@RequestParam("country")String country,@RequestParam("state") String state, @RequestParam("image")MultipartFile filename,@RequestParam("mobile")Integer mobileNo,
-	@RequestParam("pincode")Integer pincode)
+	@RequestParam("pincode")Integer pincode,Model model)
 {
 		
 		
@@ -263,6 +263,7 @@ public class MvcController {
 		
 		//Register rs=new Register(name,password,email,gender,country,roleid);
 	    //regrepository.save(rs);
+		model.addAttribute("role",role);
         return "homepage";
 	
 	}

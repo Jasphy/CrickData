@@ -24,7 +24,7 @@ public interface PersonRepository extends JpaRepository<Person,String> {
 	{
 		final DriverManagerDataSource datasource=new DriverManagerDataSource();
 		datasource.setDriverClassName("com.mysql.jdbc.Driver");
-		datasource.setUrl("jdbc:mysql://localhost:3306/traning");
+		datasource.setUrl("jdbc:mysql://192.168.99.100:3306/traning");
 		datasource.setUsername("root");
 		datasource.setPassword("traning");
 		

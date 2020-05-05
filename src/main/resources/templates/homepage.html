@@ -3,8 +3,8 @@
 <head>
 <title>My Application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" th:href="@{/css/main.css}"
-	href="../../css/main.css" />
+<link rel="stylesheet" th:href="@{/css/homepage.css}"
+	href="../../css/homepage.css" />
 </head>
 <body>
 <p>Welcome to the Cricket World !!</p>
@@ -12,6 +12,8 @@
 <!-- <p th:text="${jsession.getId()}"></p> -->
 <div>
 <a th:href="@{/viewall/{rolename} (rolename=${role.getRoledesc()})}">Indian Cricket Team </a>
+
+<a th:href="@{/viewall/{rolename} (rolename=${role.getRoledesc()})}">England Cricket Team </a>
 </div>
 </body>
 </html>

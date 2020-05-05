@@ -31,6 +31,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.sample.model.Person;
 import com.web.sample.model.Register;
 import com.web.sample.model.Role;
@@ -48,6 +52,7 @@ public class MvcController {
 	
 	@Autowired
 	com.web.sample.model.RoleRepository rolerepos;
+	
 	
 	Role role; 
 	
@@ -137,6 +142,20 @@ public class MvcController {
 	public String personbyname(@PathVariable("name") String name,Model model){
 		model.addAttribute("person",repository.findPesronByName(name));
 		model.addAttribute(role);
+		
+		Person p=repository.findPesronByName(name);
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+		String jsonString;
+		try {
+			jsonString = mapper.writeValueAsString(p);
+			 System.out.println(jsonString);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	     
+		
 		return "View";
 	}
 
@@ -146,7 +165,7 @@ public class MvcController {
 		
 		
 		
-		if(role.getRoledesc().equals("admin"))
+		if(role.getRoledesc().equals("Admin"))
 		{
 		model.addAttribute("person", repository.findPesronByName(name));
 		model.addAttribute(role);
@@ -203,6 +222,19 @@ public class MvcController {
 		
 		return "AddPlayer";
 	}
+	
+	@RequestMapping("/delete/{name}") //delete player
+	 public String delete(@PathVariable("name") String name,Model model) {
+		
+		System.out.println("deleted:"+ name);
+		model.addAttribute(role);
+	  int a=repository.deletePesronByName(name);
+	  
+	  System.out.println("deleted:"+ name+ ": : "+a);
+	  
+	  return "homepage";	
+	     
+	 }
 	
 	@RequestMapping(value="/generatereport", method = RequestMethod.GET,produces= MediaType.APPLICATION_PDF_VALUE) // GeneratefullReport
 	public ResponseEntity<?> generatereport() throws IOException{
@@ -263,6 +295,8 @@ public class MvcController {
 		
 		//Register rs=new Register(name,password,email,gender,country,roleid);
 	    //regrepository.save(rs);
+		
+		System.out.println(role);
 		model.addAttribute("role",role);
         return "homepage";
 	

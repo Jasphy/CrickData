@@ -4,25 +4,21 @@ h1{
 }
 p{
 	color:white;
+	font-size:large;
 	
 }
  body
  {
-  background-image: url("../../images/secure.jpg");
+  background-image: url("../../images/homepage.jpg");
+  background-repeat: no-repeat;
+  background-size: 1600px 900px;
  
  }
- input[type=text], input[type=password] {
-    width: 25%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+ 
 
 
 a:link, a:visited {
-    background-color: grey;
+    background-color: orange;
     color: white;
     padding: 14px 25px;
     text-align: center;

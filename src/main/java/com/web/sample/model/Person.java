@@ -1,5 +1,6 @@
 package com.web.sample.model;
 
+import java.io.Serializable;
 import java.sql.Blob;
 import java.util.Date;
 
@@ -15,10 +16,19 @@ import javax.persistence.TemporalType;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name="person",catalog="traning")
-public class Person {
+@JsonAutoDetect
+public class Person implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	@Id
 	@Column(name = "name")
 	private String name;

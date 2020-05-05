@@ -10,14 +10,14 @@
 <p th:align="center" th:color="white">Welcome !! Please Login. </p>
 <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
+      <!-- <img src="../../static/images/images.jpg" class="pitch" style="width:200px;height:100px; top: 25px;
+      left: 25px;
+      z-index: 2;"/> -->
+      
 
 <!-- @{/homepage}-->
    <form th:with="authUrl=${'/homepage'}" action="#" th:action="${authUrl}" method="post">
    
-      <div>
-      <img src="../../static/images/images.jpg" class="pitch" style="width:200px;height:100px"/>
-      </div>
-    
       <div>
       <label for="username">User name</label>
       <input type="text" placeholder="username" name="username" th:value="${username}"/> 

@@ -8,6 +8,7 @@
 </head>
 <body>
 <a th:href="@{/homepage1/{id}(id=${role.getId()})}">Home Page </a>
+
 	
 	<table style="border-collapse: separate; border-spacing: 10px;">
 	<thead>
@@ -35,10 +36,12 @@
 			<td th:text="${person.getPincode()}"></td>
 	        <td><a th:href="@{/person/{name}(name=${person.getName()})}">View</a></td>
 	        <td><a th:href="@{/update/{name}(name=${person.getName()})}">Edit</a></td>
+	         <td><a th:href="@{/delete/{name}(name=${person.getName()})}">Delete</a></td>
 		</tr>
 	</table>
 	<a th:id="a1" th:href="@{/addnewplayer}">Add Player </a>
 	<a th:id="a2" th:href="@{/generatereport}">Generate Report</a>
+	<a th:id="a3" th:href="@{/login}">Logout</a>
 	<hr/>
 </body>
 </html>

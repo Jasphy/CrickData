@@ -1,6 +1,15 @@
 @CHARSET "ISO-8859-1";
 body {
-    background-color:rgb(250, 230, 230);;
+   /*  background-color:rgb(250, 230, 230); */
+     
+   background-image: url("../../images/ima.jpg");
+  background-color: white;
+
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 150px 200px;
+  position: relative;
+ 
 }
 a{
     color: black;
@@ -25,5 +34,13 @@ a{
     text-decoration: none;
     text-align:right;
     border:double;
+	
+}
+#a3{
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: right;
+   
 	
 }

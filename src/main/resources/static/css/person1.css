@@ -11,7 +11,7 @@ body {
   position: relative;
  
 }
-a{
+a.homepage{
     color: black;
     background-color: transparent;
     text-decoration: none;
@@ -42,5 +42,18 @@ a{
     text-decoration: none;
     text-align: right;
    
+	
+}
+pagination {
+  display: inline-block;
+  float:center;
+}
+
+
+a.a4{
+    color: lemonyellow;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
 	
 }

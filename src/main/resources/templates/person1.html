@@ -6,8 +6,16 @@
 	<link rel="stylesheet" th:href="@{/css/person1.css}"
 	href="../../css/person1.css" />
 </head>
+<script type="text/javascript">
+    function pagenationnumbersetflag(){
+    alert("clicking");
+   
+    	
+      
+    }
+</script>
 <body>
-<a th:href="@{/homepage1/{id}(id=${role.getId()})}">Home Page </a>
+<a th:class="homepage" th:href="@{/homepage1/{id}(id=${role.getId()})}">Home Page </a>
 
 	
 	<table style="border-collapse: separate; border-spacing: 10px;">
@@ -37,8 +45,22 @@
 	        <td><a th:href="@{/person/{name}(name=${person.getName()})}">View</a></td>
 	        <td><a th:href="@{/update/{name}(name=${person.getName()})}">Edit</a></td>
 	         <td><a th:href="@{/delete/{name}(name=${person.getName()})}">Delete</a></td>
+	         
 		</tr>
+		
+	
 	</table>
+	<div  th:class="pagination" th:each="number: ${noofpages}">
+	<a th:class="a4" th:href="@{/viewallbypage/{pagecount}(pagecount=${number+1})}" th:text="${number+1}"></a>
+	<!-- <a th:id="a4" th:href="@{/viewallbypage/{pagecount}(pagecount=${count})}" th:text="${currentpage}+1"></a>
+	<a th:id="a4" th:href="@{/viewallbypage/{pagecount}(pagecount=${count})}" th:text="${currentpage}+2"></a> -->
+	
+	</div>
+		<!-- <p th:each="number: ${noofpages}">
+    <span th:text="${number+1}"></span>
+</p>  -->
+
+<br /><br /><br />
 	<a th:id="a1" th:href="@{/addnewplayer}">Add Player </a>
 	<a th:id="a2" th:href="@{/generatereport}">Generate Report</a>
 	<a th:id="a3" th:href="@{/login}">Logout</a>

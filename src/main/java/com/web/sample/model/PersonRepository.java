@@ -1,6 +1,8 @@
 package com.web.sample.model;
 
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -26,6 +28,11 @@ public interface PersonRepository extends JpaRepository<Person,String> {
 	@Query
 	("DELETE FROM Person person WHERE person.name = :name")
 	int deletePesronByName(@Param("name") String name);
+	
+
+	@Query
+	("SELECT person FROM Person person WHERE person.name like %:name%")
+	List<Person> sarchPesronByName(@Param("name") String name);
 	
 	
 	

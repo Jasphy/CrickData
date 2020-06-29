@@ -105,7 +105,7 @@ public class MvcController {
 
 		String user = username.toString();
 		session.setAttribute("username", user);
-		session.setMaxInactiveInterval(60);
+		//session.setMaxInactiveInterval(60);
 
 		Register reg;
 
@@ -152,9 +152,9 @@ public class MvcController {
 			}
 		}
 
-		if (var.size() % 4 == 0) {
+		if (var.size() % recordsperpage == 0) {
 
-			int totalpages = var.size() / 4;
+			int totalpages = var.size() / recordsperpage;
 			int i = 0;
 
 			while (i < totalpages) {
@@ -165,7 +165,7 @@ public class MvcController {
 		}
 
 		else {
-			int totalpages = var.size() / 4 + 1;
+			int totalpages = var.size() / recordsperpage + 1;
 			int i = 0;
 
 			while (i < totalpages) {
@@ -271,6 +271,8 @@ public class MvcController {
 
 		cachedata = new HashMap<>();
 		int i = 0;
+		
+		System.out.println(list);
 
 		for (Person p : list) {
 
@@ -374,6 +376,64 @@ public class MvcController {
 		return "homepage";
 
 	}
+	
+	@PostMapping(value = "/search",produces="text/plain") // search by name
+	public String searchbyname(@RequestParam("search") String name, Model model) {
+		
+		List<Person> list = new ArrayList<>();
+		preparecache(repository.sarchPesronByName(name));
+		int recordsperpage = 4;
+		int count = 0;
+
+		Set<Integer> var = cachedata.keySet();
+
+		pagelist = new ArrayList<>();
+
+		for (Integer key : cachedata.keySet()) {
+
+			if (count < recordsperpage) {
+				list.add(cachedata.get(key));
+
+				count++;
+			}
+		}
+
+		if (var.size() % recordsperpage == 0) {
+
+			int totalpages = var.size() / recordsperpage;
+			int i = 0;
+
+			while (i < totalpages) {
+
+				pagelist.add(new Integer(i));
+				i++;
+			}
+		}
+
+		else {
+			int totalpages = var.size() / recordsperpage + 1;
+			int i = 0;
+
+			while (i < totalpages) {
+
+				pagelist.add(new Integer(i));
+				i++;
+			}
+
+		}
+
+		model.addAttribute(role);
+		model.addAttribute("persons", list);
+		model.addAttribute("currentpage", 1);
+		model.addAttribute("count", 4);
+		model.addAttribute("noofpages", pagelist);
+
+		
+		return "person1";
+	}
+	
+	
+	
 
 	@RequestMapping(value = "/generatereport", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE) // GeneratefullReport
 	public ResponseEntity<?> generatereport() throws IOException {

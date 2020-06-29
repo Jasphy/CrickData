@@ -36,13 +36,24 @@ a.homepage{
     border:double;
 	
 }
-#a3{
+/* #a3{
     color: blue;
     background-color: transparent;
     text-decoration: none;
     text-align: right;
+    float:right;
    
 	
+} */
+#a3:link, #a3:visited {
+    background-color: rgb(106, 129, 166);
+    color: white;
+    padding: 3px;
+    text-align: center;
+    text-decoration: none;
+    position:rleative;
+    float:right;
+    
 }
 pagination {
   display: inline-block;
@@ -55,5 +66,15 @@ a.a4{
   float: left;
   padding: 8px 16px;
   text-decoration: none;
+	
+}
+
+#searchinput{
+	
+	color: blue;
+    background-color: transparent;
+    text-decoration: none;
+    text-align:right;
+    border:double;
 	
 }
